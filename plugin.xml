@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <plugin id="plugin-watson-vr" version="8.0.2018072407" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+        <name>IBM Watson VR</name>
+    	<description>IBM Watson VR Plugin</description>
+        <asset src="www/WatsonVR.js" target="js/WatsonVR.js"/>
+
+ 
+        <platform name="android">
+            <js-module src="www/WatsonVR.js" name="WatsonVR">
+                <clobbers target="WatsonVR" />
+            </js-module>
+            <framework src="com.google.android.gms:play-services-gcm:+" />
+            <!-- <framework src="com.ibm.mobilefirstplatform.clientsdk.android:core:[2.0.0,3.0.0)"/>
+            <framework src="com.ibm.watson.developer_cloud:visual-recognition:3.9.1"/> -->
+            <framework src="com.ibm.watson.developer_cloud:visual-recognition:6.6.0"/>
+            <!-- <framework src="com.squareup.okhttp3:okhttp:3.11.0"/> -->
+            <!-- <config-file target="AndroidManifest.xml" parent="/manifest">
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+                <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+                <uses-permission android:name="android.permission.CAMERA"/>
+            </config-file> -->
+            <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WatsonVR">
+                <param name="android-package" value="com.sample.WatsonVR"/>
+            </feature>
+            </config-file>
+
+            <source-file src="src/android/WatsonVR.java" target-dir="src/com/sample/"/>
+
+            <!-- <lib-file src="src/android/libs/visual-recognition-6.6.0.jar" /> -->
+            <!-- <lib-file src="src/android/libs/okhttp-3.11.0.jar" /> -->
+            
+        </platform>
+
+</plugin>
+
+
+<!-- 
+<?xml version='1.0' encoding='utf-8'?>
+
+    <plugin id="plugin-watson-vr" version="8.0.2018072407" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    	<name>IBM Watson VR</name>
+    	<description>IBM Watson VR Plugin</description>
+
+        <platform name="android">
+            <js-module name="WatsonVR" src="www/WatsonVR.js">
+                <clobbers target="WatsonVR" />
+            </js-module>
+
+            <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+            <framework src="com.google.android.gms:play-services-gcm:+" />
+
+            <config-file target="AndroidManifest.xml" parent="/manifest">
+            </config-file>
+   
+            <lib-file src="src/android/libs/visual-recognition-4.0.0.jar" />
+
+            <source-file src="src/android/WatsonVR.java" target-dir="src/com/example/sample/"/>
+        </platform>
+
+        <platform name="ios">
+
+             <js-module name="MFPPush" src="www/MFPPush.js">
+                <clobbers target="MFPPush" />
+            </js-module>
+            
+            <config-file parent="/*" target="config.xml">
+
+                <feature name="MFPPushPlugin">
+                    <param name="ios-package" value="CDVMFPPush" />
+                </feature>
+
+            </config-file>
+            
+	        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+	            <array>
+	                <string>remote-notification</string>
+	            </array>
+	        </config-file>            
+            
+            <config-file target="*-Debug.plist" parent="aps-environment">
+               <string>development</string>
+            </config-file>
+            
+            <config-file target="*-Release.plist" parent="aps-environment">
+               <string>production</string>
+            </config-file> 
+            
+            <header-file src="src/ios/MFPAppDelegate+push.h" />
+            <header-file src="src/ios/CDVMFPPush.h" />
+
+            <source-file src="src/ios/MFPAppDelegate+push.m" />            
+            <source-file src="src/ios/CDVMFPPush.m" />
+
+
+            <framework src="src/ios/Frameworks/IBMMobileFirstPlatformFoundationPush.framework" custom="true" />
+        </platform>
+
+    </plugin> -->
