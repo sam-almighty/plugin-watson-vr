@@ -1,2 +1,2 @@
-# Watson-VR-cordova-plugin
+# plugin-watson-vr
 A cordova plugin which talks to Watson's VR service
