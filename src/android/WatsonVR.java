@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.StringWriter;
 import android.util.Log;
 import android.net.Uri;
-import org.apache.commons.io.IOUtils;
 import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,6 +89,7 @@ public class WatsonVR extends CordovaPlugin{
             callbackContext.success(result.toString());
         } catch(Exception e) {
             Log.d("SURBHI", "error:"+e.toString());
+            e.printStackTrace();
             callbackContext.error(e.toString());
         }
        
